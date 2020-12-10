@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="todos">
     <div :key="todo.id" v-for="todo in todos">
-      <TodoItem :todo="todo" />
+      <TodoItem :todo="todo" v-on:del-todo="$emit('del-todo', todo.id)"/>
     </div>
   </div>
 </template>
@@ -19,4 +19,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.todos {
+  width: 100%;
+  padding: 0 2rem;
+}
+</style>
